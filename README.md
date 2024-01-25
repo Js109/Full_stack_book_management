@@ -23,3 +23,11 @@ The book management system offers classic CRUD operations:
 2. Add Book
 3. Delete Book
 4. Update Book
+
+Some impressions:
+<kbd>![image info](Book_Management_Overview.png "Book Management Overview")</kbd>
+
+The values of the dialogues are pre-filled or are taken from the selected book (transfer of the values to the corresponding component).
+<kbd>![image info](Add_Dialog.png "Add Book")</kbd>
+
+<kbd>![image info](Update_Dialog.png "Update Book")</kbd>

@@ -28,7 +28,7 @@ public class BookList {
     public BookList() {
     }
 
-    public void addBook(String title, String author, int isbn) {
+    public void addBook(String title, String author, long isbn) {
         if (bookList.isEmpty()) {
             bookList.add(new Book(0, title, author, isbn));
             logger.info("first book with bookID 0 has been added");
@@ -65,7 +65,7 @@ public class BookList {
         }
     }
 
-    public void updateBook(int IDtoUpdate, String title, String author, int isbn) {
+    public void updateBook(int IDtoUpdate, String title, String author, long isbn) {
         List<Book> resultList = predicateBookFilter(bookList, book -> book.getBookID() == IDtoUpdate);
 
         if (resultList.isEmpty()) {

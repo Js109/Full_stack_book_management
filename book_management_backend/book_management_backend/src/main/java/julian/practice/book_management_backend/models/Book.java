@@ -10,13 +10,13 @@ public class Book implements Comparable<Book> {
     private int bookID;
     private String title;
     private String author;
-    private int isbn;
+    private long isbn;
 
     @Autowired
     public Book() {
     }
 
-    public Book(int bookID, String title, String author, int isbn) {
+    public Book(int bookID, String title, String author, long isbn) {
         this.bookID = bookID;
         this.title = title;
         this.author = author;
@@ -47,7 +47,7 @@ public class Book implements Comparable<Book> {
         this.author = author;
     }
 
-    public int getISBN() {
+    public long getISBN() {
         return isbn;
     }
 
@@ -81,6 +81,6 @@ public class Book implements Comparable<Book> {
         //      >       >0 positiv
         //      <       <0 negativ
         //      =       =0
-        return Integer.compare(this.isbn, o.isbn) + this.title.compareTo(o.title) + this.author.compareTo(o.author);
+        return Long.compare(this.isbn, o.isbn) + this.title.compareTo(o.title) + this.author.compareTo(o.author);
     }
 }

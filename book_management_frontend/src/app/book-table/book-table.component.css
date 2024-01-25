@@ -1,0 +1,37 @@
+body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      margin: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    th {
+      background-color: #007bff;
+      color: #ffffff;
+    }
+
+    tbody tr:hover {
+      background-color: #f2f2f2;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      margin-right: 10px;
+    }
+

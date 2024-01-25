@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Management System - Add Book</title>
+
+  <!-- Bootstrap CSS (Assuming you have Bootstrap installed) -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="custom-dialog">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-between align-items-center">
+        <h2 mat-dialog-title>Add Book</h2>
+        <button type="button" class="close" (click)="closeDialog()">
+          <span>&times;</span>
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <form>
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" id="title" name="title" [(ngModel)]="book.title" required>
+          </div>
+          <div class="form-group">
+            <label for="author">Author:</label>
+            <input type="text" class="form-control" id="author" name="author" [(ngModel)]="book.author" required>
+          </div>
+          <div class="form-group">
+            <label for="isbn">ISBN:</label>
+            <input type="text" class="form-control" id="isbn" name="isbn" [(ngModel)]="book.isbn" required>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <button type="button" class="btn btn-primary mr-3" (click)="createBook()">Add Book</button>
+        <button type="button" class="btn btn-secondary" (click)="closeDialog()">Decline</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS (Assuming you have Bootstrap installed) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

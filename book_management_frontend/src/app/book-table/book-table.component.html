@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Management System</title>
+
+  <!-- Bootstrap CSS (Assuming you have Bootstrap installed) -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+  <h2 class="mt-4 mb-4">Book Management System</h2>
+
+  <div class="btn-container">
+    <button class="btn btn-primary" (click)="addBook()">Add Book</button>
+    <button class="btn btn-warning" (click)="updateBook()">Update Book</button>
+    <button class="btn btn-danger" (click)="deleteBook()">Delete Book</button>
+  </div>
+
+  <table class="table table-bordered">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">BookID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">ISBN</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let book of books">
+      <tr (click)="selectBook(book)" [ngClass]="{'table-active': book === selectedBook}">
+        <td>{{ book.bookID }}</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.isbn }}</td>
+      </tr>
+    </ng-container>
+    </tbody>
+  </table>
+</div>
+
+<!-- Bootstrap JS (Assuming you have Bootstrap installed) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
