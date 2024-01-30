@@ -8,12 +8,12 @@ import { catchError } from 'rxjs/operators';
     providedIn: 'root',
 })
 export class BookService {
-    private apiUrl = 'http://localhost:8081/api';
+    private apiUrl = 'http://localhost:8081/api/book';
 
     constructor(private http: HttpClient) { }
 
     getAllBooks(): Observable<Book[]> {
-        return this.http.get<Book[]>(this.apiUrl+"/getBooks");
+        return this.http.get<Book[]>(this.apiUrl);
     }
 
     addBook(newBook: Book): Observable<Book> {
@@ -22,8 +22,8 @@ export class BookService {
             'Content-Type': 'application/json',
           }),
         };
-    
-        return this.http.post<Book>(`${this.apiUrl}/addBook`, newBook, httpOptions)
+
+        return this.http.post<Book>(`${this.apiUrl}`, newBook, httpOptions)
           .pipe(
             catchError((error) => {
               console.error('Error adding book:', error);
@@ -39,7 +39,7 @@ export class BookService {
             }),
         };
 
-        return this.http.delete<void>(`${this.apiUrl}/deleteBook?bookID=${bookID}`, httpOptions)
+        return this.http.delete<void>(`${this.apiUrl}/${bookID}`, httpOptions)
         .pipe(
             catchError((error) => {
               console.error('Error deleting book:', error);
@@ -47,9 +47,9 @@ export class BookService {
             })
           );
     }
-    
+
     updateBook(book: any): Observable<any> {
-        const url = `${this.apiUrl}/updateBook`;
+        const url = `${this.apiUrl}`;
 
         const headers = new HttpHeaders({ 'Content-Type': 'application/json'});
 

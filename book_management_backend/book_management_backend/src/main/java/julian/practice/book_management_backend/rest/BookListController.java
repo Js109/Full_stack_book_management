@@ -22,13 +22,13 @@ public class BookListController {
     @Autowired
     BookList bookList;
 
-    @GetMapping("/getBooks")
+    @GetMapping("/book")
     public ResponseEntity<BookList> getBookList() {
         logger.info("getBookList called");
         return new ResponseEntity<>(bookList, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/addBook", consumes = "application/json")
+    @PostMapping(value = "/book", consumes = "application/json")
     public ResponseEntity<Map<String, Object>> addBook(@RequestBody Book book) {
         logger.info("addBook called");
         bookList.addBook(book.getTitle(), book.getAuthor(), book.getISBN());
@@ -40,8 +40,8 @@ public class BookListController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
-    @DeleteMapping(value = "/deleteBook", consumes = "application/json")
-    public ResponseEntity<Map<String, Object>> deleteBook(@RequestParam String bookID) {
+    @DeleteMapping(value = "/book/{bookID}", consumes = "application/json")
+    public ResponseEntity<Map<String, Object>> deleteBook(@PathVariable String bookID) {
         try {
             bookList.removeBook(bookID);
             Map<String, Object> response = new HashMap<>();
@@ -52,7 +52,7 @@ public class BookListController {
         }
     }
 
-    @PutMapping(value ="/updateBook", consumes = "application/json")
+    @PutMapping(value ="/book", consumes = "application/json")
     public ResponseEntity<Map<String, Object>> updateBook(@RequestBody Book updateBook) {
         try {
             bookList.updateBook(updateBook.getBookID(), updateBook.getTitle(), updateBook.getAuthor(), updateBook.getISBN());
