@@ -1,5 +1,6 @@
 package julian.practice.book_management_backend.models;
 
+import io.micrometer.common.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +9,9 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Predicate;
-
+/*
 @Component
 public class BookList {
 
@@ -29,15 +31,18 @@ public class BookList {
     }
 
     public void addBook(String title, String author, long isbn) {
-        if (bookList.isEmpty()) {
-            bookList.add(new Book(0, title, author, isbn));
-            logger.info("first book with bookID 0 has been added");
-        } else {
-            int newBookID = bookList.getLast().getBookID() + 1;
-            Book newBook = new Book(newBookID, title, author, isbn);
-            bookList.add(newBook);
-            logger.info("book has been added: " + newBook);
-        }
+        //if (StringUtils.isEmpty(title) || StringUtils.isEmpty(author) || isbn == 0) {
+            if (bookList.isEmpty()) {
+                bookList.add(new Book(0, title, author, isbn));
+                logger.info("first book with bookID 0 has been added");
+            } else {
+                int newBookID = bookList.getLast().getBookID() + 1;
+                Book newBook = new Book(newBookID, title, author, isbn);
+                bookList.add(newBook);
+                logger.info("book has been added: " + newBook);
+            }
+        //} else
+        //    throw new IllegalArgumentException("Book format was wrong or had empty fields. title: " + title + " author: " + author + "isbn: " + isbn);
     }
 
     public void removeBook(String bookID) {
@@ -58,7 +63,7 @@ public class BookList {
                 }
             }
 
-            if(!bookFound) {
+            if (!bookFound) {
                 logger.error("BookID " + bookID + " was not found and thus could not be removed");
                 throw new IllegalArgumentException("BookID " + bookID + " was not found and thus could not be removed");
             }
@@ -97,4 +102,4 @@ public class BookList {
         }
         return result;
     }
-}
+}*/

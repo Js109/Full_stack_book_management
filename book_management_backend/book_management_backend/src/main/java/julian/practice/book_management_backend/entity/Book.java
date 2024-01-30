@@ -1,24 +1,30 @@
-package julian.practice.book_management_backend.models;
+package julian.practice.book_management_backend.entity;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import jakarta.persistence.*;
 import java.util.Objects;
 
-/*
-@Component
+@Entity
+@Table(name="book")
 public class Book implements Comparable<Book> {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="bookID")
     private int bookID;
+
+    @Column(name="title")
     private String title;
+
+    @Column(name = "author")
     private String author;
+
+    @Column(name = "isbn")
     private long isbn;
 
-    @Autowired
     public Book() {
     }
 
-    public Book(int bookID, String title, String author, long isbn) {
-        this.bookID = bookID;
+    public Book(String title, String author, long isbn) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
@@ -84,5 +90,4 @@ public class Book implements Comparable<Book> {
         //      =       =0
         return Long.compare(this.isbn, o.isbn) + this.title.compareTo(o.title) + this.author.compareTo(o.author);
     }
-}*/
-
+}

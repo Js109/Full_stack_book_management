@@ -1,7 +1,7 @@
 package julian.practice.book_management_backend.rest;
 
-import julian.practice.book_management_backend.models.Book;
-import julian.practice.book_management_backend.models.BookList;
+import julian.practice.book_management_backend.dao.BookDAO;
+import julian.practice.book_management_backend.entity.Book;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-@RestController
+/*@RestController
 @RequestMapping("/api")
 public class BookListController {
 
@@ -30,14 +31,19 @@ public class BookListController {
 
     @PostMapping(value = "/addBook", consumes = "application/json")
     public ResponseEntity<Map<String, Object>> addBook(@RequestBody Book book) {
-        logger.info("addBook called");
-        bookList.addBook(book.getTitle(), book.getAuthor(), book.getISBN());
+        // add Exception handling here empty Values
+        try {
+            logger.info("addBook called");
+            bookList.addBook(book.getTitle(), book.getAuthor(), book.getISBN());
 
-        // Create Object for json response
-        Map<String, Object> response = new HashMap<>();
-        response.put("message", "Book " + book.getTitle() + " was added successfully.");
+            // Create Object for json response
+            Map<String, Object> response = new HashMap<>();
+            response.put("message", "Book " + book.getTitle() + " was added successfully.");
 
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+            return new ResponseEntity<>(response, HttpStatus.CREATED);
+        } catch (IllegalArgumentException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Book format was not correct", e);
+        }
     }
 
     @DeleteMapping(value = "/deleteBook", consumes = "application/json")
@@ -62,5 +68,4 @@ public class BookListController {
         } catch (IllegalArgumentException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Book to update not found", e);
         }
-    }
-}
+    }*/
