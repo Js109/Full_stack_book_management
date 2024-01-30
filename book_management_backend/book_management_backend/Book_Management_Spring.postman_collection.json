@@ -31,7 +31,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8081/api/getBooks",
+					"raw": "http://localhost:8081/api/book",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -39,7 +39,7 @@
 					"port": "8081",
 					"path": [
 						"api",
-						"getBooks"
+						"book"
 					]
 				}
 			},
@@ -60,7 +60,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/addBook",
+					"raw": "http://localhost:8081/api/book",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -68,7 +68,7 @@
 					"port": "8081",
 					"path": [
 						"api",
-						"addBook"
+						"book"
 					]
 				}
 			},
@@ -89,7 +89,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/deleteBook?bookID=8",
+					"raw": "http://localhost:8081/api/book/0",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -97,13 +97,8 @@
 					"port": "8081",
 					"path": [
 						"api",
-						"deleteBook"
-					],
-					"query": [
-						{
-							"key": "bookID",
-							"value": "8"
-						}
+						"book",
+						"0"
 					]
 				}
 			},
@@ -116,7 +111,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"bookID\": 1,\r\n  \"title\": \"The first book updated in this collection\",\r\n  \"author\" : \"The first author of this book\",\r\n  \"isbn\" : 1267\r\n}",
+					"raw": "{\r\n  \"bookID\": 0,\r\n  \"title\": \"The first book updated in this collection\",\r\n  \"author\" : \"The first author of this book\",\r\n  \"isbn\" : 1267\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -124,7 +119,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/updateBook",
+					"raw": "http://localhost:8081/api/book",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -132,7 +127,7 @@
 					"port": "8081",
 					"path": [
 						"api",
-						"updateBook"
+						"book"
 					]
 				}
 			},
